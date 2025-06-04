@@ -74,6 +74,42 @@ activities = {
             "schedule": "Wednesdays, 4:00 PM - 5:00 PM",
             "max_participants": 14,
             "participants": []
+        },
+        "Tennis Club": {
+            "description": "Learn and play tennis with fellow students",
+            "schedule": "Mondays and Thursdays, 4:00 PM - 5:30 PM",
+            "max_participants": 12,
+            "participants": []
+        },
+        "Swim Team": {
+            "description": "Join the swim team and participate in swim meets",
+            "schedule": "Tuesdays and Fridays, 3:30 PM - 5:00 PM",
+            "max_participants": 20,
+            "participants": []
+        },
+        "Photography Club": {
+            "description": "Explore photography techniques and participate in photo walks",
+            "schedule": "Wednesdays, 4:00 PM - 5:30 PM",
+            "max_participants": 15,
+            "participants": []
+        },
+        "Music Ensemble": {
+            "description": "Perform music in a group and learn new instruments",
+            "schedule": "Thursdays, 3:30 PM - 5:00 PM",
+            "max_participants": 18,
+            "participants": []
+        },
+        "Debate Club": {
+            "description": "Develop public speaking and argumentation skills",
+            "schedule": "Tuesdays, 4:00 PM - 5:30 PM",
+            "max_participants": 14,
+            "participants": []
+        },
+        "Robotics Team": {
+            "description": "Design, build, and program robots for competitions",
+            "schedule": "Fridays, 3:30 PM - 5:30 PM",
+            "max_participants": 12,
+            "participants": []
         }
 }
 
@@ -102,18 +138,11 @@ def signup_for_activity(activity_name: str, email: str):
     activity["participants"].append(email)
     return {"message": f"Signed up {email} for {activity_name}"}
 
-# Validate student is not already signed up
+   # Validate if student is already signed up
     if email in activity["participants"]:
         raise HTTPException(status_code=400, detail="Already signed up for this activity")
 
-    # Check if max participants reached
-    if len(activity["participants"]) >= activity["max_participants"]:
-        raise HTTPException(status_code=400, detail="Activity is full")
 
-    # Add student to the activity
-    activity["participants"].append(email)
-    return {"message": f"Signed up {email} for {activity_name}"}
-
-
+ 
 
 
